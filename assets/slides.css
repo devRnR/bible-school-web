@@ -208,8 +208,7 @@ h1, h2, h3, .font-title { font-family: "Jua", "Apple SD Gothic Neo", sans-serif;
 .flow-chip .lb { font-family: "Jua", sans-serif; font-size: clamp(0.85rem, 2.3vmin, 1.25rem); }
 .flow-chip.gold { background: var(--yellow); border-color: #e8950f; }
 .flow-arr { align-self: center; color: var(--accent); font-size: clamp(1.1rem, 3vmin, 1.8rem); }
-.flow-row + .flow-row, .flow-down + .flow-row { margin-top: 0.6vmin; }
-.flow-down { color: var(--accent); font-size: clamp(1.2rem, 3.2vmin, 2rem); margin: 0.8vmin 0; }
+.flow-row + .flow-row { margin-top: 1.4vmin; }
 
 /* ---------- 포인트 슬라이드 ---------- */
 .points-grid {

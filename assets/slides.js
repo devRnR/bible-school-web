@@ -70,7 +70,6 @@
         groups = [s.steps];
       }
       groups.forEach(function (g, gIdx) {
-        if (gIdx > 0) inner.appendChild(el('div', 'flow-down', '⬇'));
         var row = el('div', 'flow-row');
         g.forEach(function (st, i) {
           if (i > 0) row.appendChild(el('span', 'flow-arr', '➜'));
