@@ -180,5 +180,5 @@ const DECK = [
     ['👑', '통일왕국'], ['💔', '분열왕국'], ['⛓️', '포로'], ['🏗️', '귀환·회복'], ['🤫', '침묵기'], ['✝️', '예수님!', true]] },
   { type: 'verse', theme: 'amber', quote: '"나 여호와가 말하노라 너희를 향한 나의 생각은 내가 아나니<br>재앙이 아니라 곧 평안이요 너희 장래에 소망을 주려 하는 생각이라"', cite: '예레미야 29장 11절 (개역한글)' },
 
-  { type: 'cover', theme: 'blue', emoji: '🎉🚌', title: '성경 여행 <span class="hl">완주!</span>', sub: '성경은 하나님이 우리를 사랑하셔서 주신 말씀이에요', hint: '처음으로 돌아가려면 Home 키를 눌러요' }
+  { type: 'cover', theme: 'blue', emoji: '🎉🚌', title: '성경 여행 <span class="hl">완주!</span>', sub: '성경은 하나님이 우리를 사랑하셔서 주신 말씀이에요', restart: true }
 ];

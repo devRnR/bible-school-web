@@ -32,6 +32,12 @@
       inner.appendChild(el('h1', 'cover-title', s.title));
       inner.appendChild(el('p', 'cover-sub', s.sub));
       if (s.hint) inner.appendChild(el('div', 'cover-hint', s.hint));
+      if (s.restart) {
+        var rb = el('button', 'cover-restart', '🔄 처음으로 돌아가기');
+        rb.type = 'button';
+        rb.addEventListener('click', function () { goTo(0); });
+        inner.appendChild(rb);
+      }
     } else if (s.type === 'toc') {
       inner.appendChild(el('h1', 'cover-title', s.title));
       var grid = el('div', 'toc-grid');
