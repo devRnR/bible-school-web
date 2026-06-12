@@ -8,7 +8,7 @@ const DECK = [
   { type: 'toc', theme: 'blue', title: '오늘의 여행 지도 🗺️' },
 
   /* ============ PART 1. 성경 언약을 한눈에! ============ */
-  { type: 'chapter', theme: 'pink', part: 1, emoji: '🤝🌈', title: '성경 언약을 한눈에!', sub: '하나님의 구원 계획과 은혜의 약속 — 8가지 언약' },
+  { type: 'chapter', theme: 'pink', part: 1, emoji: '🤝🌈', title: '성경 언약을 한눈에!', sub: '하나님의 구원 계획과 은혜의 약속 — 8가지 언약', page: '03-covenants.html', short: '언약' },
   { type: 'card', theme: 'pink', ico: '♾️', num: '1', title: '구속언약', meta: '영원 전의 언약 · 엡 1:4~5, 요 17장', tline: '세상이 만들어지기도 전의 약속',
     bullets: ['영원 전에 삼위 하나님(성부·성자·성령)이 구원 계획을 세우셨어요', '구원은 우연이 아니라 하나님의 분명한 계획이에요', '예수 그리스도를 통해 구원하시기로 정하셨어요'] },
   { type: 'card', theme: 'pink', ico: '🍎', num: '2', title: '행위언약', meta: '아담 언약 · 창 2:16~17', tline: '에덴동산에서 아담과 맺으신 약속',
@@ -25,7 +25,7 @@ const DECK = [
     bullets: ['다윗의 후손으로 왕위를 잇게 하셨어요', '그 나라가 영원히 견고할 거라 약속하셨어요', '다윗의 자손으로 오신 영원한 왕이 예수님이에요'] },
   { type: 'card', theme: 'pink', ico: '✝️', num: '8', title: '새언약', meta: '그리스도 언약 · 렘 31:31~34, 눅 22:20', tline: '예수님의 피로 세우신 언약',
     bullets: ['법을 돌판이 아니라 마음에 새겨 주세요', '죄를 완전히 용서해 주세요', '예수님이 십자가의 피로 세우신 언약이에요', '성령님을 우리 안에 부어 주셨어요'] },
-  { type: 'flow', theme: 'pink', title: '언약의 흐름 한눈에 보기', steps: [
+  { type: 'flow', theme: 'pink', title: '언약의 흐름 한눈에 보기', cols: 4, steps: [
     ['♾️', '구속'], ['🍎', '행위'], ['🌱', '은혜'], ['🌈', '노아'], ['⭐', '아브라함'], ['📜', '모세'], ['👑', '다윗'], ['✝️', '새 언약', true]] },
   { type: 'points', theme: 'pink', title: '언약의 핵심 의미', items: [
     ['💝', '하나님의 사랑', '언약은 먼저 다가와 약속하시는 하나님의 사랑이에요'],
@@ -35,7 +35,7 @@ const DECK = [
   { type: 'verse', theme: 'pink', quote: '"내가 내 무지개를 구름 속에 두었나니<br>이것이 나의 세상과의 언약의 증거니라"', cite: '창세기 9장 13절 (개역한글)' },
 
   /* ============ PART 2. 대선지서 ============ */
-  { type: 'chapter', theme: 'red', part: 2, emoji: '📢📜', title: '대선지서 — 다섯 권의 책', sub: '하나님의 심판과 회복, 그리고 새 언약의 소망' },
+  { type: 'chapter', theme: 'red', part: 2, emoji: '📢📜', title: '대선지서 — 다섯 권의 책', sub: '하나님의 심판과 회복, 그리고 새 언약의 소망', page: '07-major-prophets.html', short: '대선지서' },
   { type: 'card', theme: 'red', ico: '👑', num: '1', title: '이사야', meta: '1~66장 · 약 B.C. 739~681년', tline: '심판 너머 메시아의 소망',
     bullets: ['유다의 죄에 대한 심판 경고', '임마누엘 예언 — "처녀가 잉태하여" (사 7:14)', '고난받는 종 — 십자가 예언 (사 53장)', '위로와 회복의 메시지'],
     verse: '"내가 여기 있나이다 나를 보내소서" (사 6:8)' },
@@ -56,7 +56,7 @@ const DECK = [
   { type: 'verse', theme: 'red', quote: '"두려워 말라 내가 너와 함께 함이니라 놀라지 말라<br>나는 네 하나님이 됨이니라 내가 너를 굳세게 하리라"', cite: '이사야 41장 10절 (개역한글)' },
 
   /* ============ PART 3. 역사서 ============ */
-  { type: 'chapter', theme: 'brown', part: 3, emoji: '👑🏰', title: '역사서 — 이스라엘의 역사 이야기', sub: '가나안 정복부터 포로 귀환까지, 열두 권의 역사 책' },
+  { type: 'chapter', theme: 'brown', part: 3, emoji: '👑🏰', title: '역사서 — 이스라엘의 역사 이야기', sub: '가나안 정복부터 포로 귀환까지, 열두 권의 역사 책', page: '05-history-books.html', short: '역사서' },
   { type: 'card', theme: 'brown', ico: '🎺', num: '1', title: '여호수아', meta: '1~24장', tline: '약속의 땅을 정복해요',
     bullets: ['요단강을 건너 가나안으로', '나팔 소리에 무너진 여리고성', '가나안 정복과 열두 지파 땅 분배'],
     verse: '"마음을 강하게 하고 담대히 하라" (수 1:9)' },
@@ -88,7 +88,7 @@ const DECK = [
   { type: 'verse', theme: 'brown', quote: '"마음을 강하게 하고 담대히 하라 두려워 말며 놀라지 말라<br>네가 어디로 가든지 네 하나님 여호와가 너와 함께 하느니라"', cite: '여호수아 1장 9절 (개역한글)' },
 
   /* ============ PART 4. 성경이란 무엇인가? ============ */
-  { type: 'chapter', theme: 'blue', part: 4, emoji: '📖💡', title: '성경이란 무엇인가?', sub: '하나님이 우리에게 주신 구원의 말씀' },
+  { type: 'chapter', theme: 'blue', part: 4, emoji: '📖💡', title: '성경이란 무엇인가?', sub: '하나님이 우리에게 주신 구원의 말씀', page: '01-what-is-bible.html', short: '성경이란' },
   { type: 'card', theme: 'blue', ico: '🗣️', num: '1', title: '성경이 무엇인가요?', meta: '하나님의 말씀', tline: '성경은 이런 책이에요',
     bullets: ['"모든 성경은 하나님의 감동으로 된 것으로 교훈과 책망과 바르게 함과 의로 교육하기에 유익하니" (딤후 3:16)', '예수 그리스도를 믿어 구원을 얻게 해 줘요', '약 1,600년 동안 약 40명의 저자가 기록했어요', '시대와 배경은 달라도 주제는 단 하나 — 하나님의 구원'] },
   { type: 'card', theme: 'blue', ico: '🧩', num: '2', title: '구성과 분류', meta: '구약 39권 + 신약 27권 = 66권', tline: '한 권의 하나님 말씀!',
@@ -104,7 +104,7 @@ const DECK = [
   { type: 'verse', theme: 'blue', quote: '"주의 말씀은 내 발에 등이요 내 길에 빛이니이다"', cite: '시편 119편 105절 (개역한글)' },
 
   /* ============ PART 5. 소선지서 ============ */
-  { type: 'chapter', theme: 'sky', part: 5, emoji: '🐋📣', title: '소선지서 — 열두 권의 책', sub: '회개와 회복! 하나님의 사랑과 공의를 전한 12명의 선지자' },
+  { type: 'chapter', theme: 'sky', part: 5, emoji: '🐋📣', title: '소선지서 — 열두 권의 책', sub: '회개와 회복! 하나님의 사랑과 공의를 전한 12명의 선지자', page: '08-minor-prophets.html', short: '소선지서' },
   { type: 'card', theme: 'sky', ico: '💗', num: '1', title: '호세아', meta: '1~14장 · 북이스라엘', tline: '변치 않는 하나님의 사랑',
     bullets: ['떠나간 아내를 다시 데려온 호세아의 삶', '배신해도 다시 품으시는 하나님의 사랑', '"내가 저희의 패역을 고치고 즐거이 저희를 사랑하리니" (호 14:4)'] },
   { type: 'card', theme: 'sky', ico: '🦗', num: '2', title: '요엘', meta: '1~3장 · 남유다', tline: '여호와의 날과 성령의 약속',
@@ -134,7 +134,7 @@ const DECK = [
   { type: 'verse', theme: 'sky', quote: '"오직 공의를 행하며 인자를 사랑하며<br>겸손히 네 하나님과 함께 행하는 것이 아니냐"', cite: '미가 6장 8절 (개역한글)' },
 
   /* ============ PART 6. 시가서 ============ */
-  { type: 'chapter', theme: 'green', part: 6, emoji: '🎵🎶', title: '시가서 — 다섯 권의 지혜와 노래', sub: '하나님을 예배하고, 지혜를 배우며, 인생의 참 의미를 찾는 책들' },
+  { type: 'chapter', theme: 'green', part: 6, emoji: '🎵🎶', title: '시가서 — 다섯 권의 지혜와 노래', sub: '하나님을 예배하고, 지혜를 배우며, 인생의 참 의미를 찾는 책들', page: '06-wisdom-books.html', short: '시가서' },
   { type: 'card', theme: 'green', ico: '💪', num: '1', title: '욥기', meta: '1~42장', tline: '고난 속에서도 하나님을 신뢰해요',
     bullets: ['욥에게 갑자기 찾아온 큰 고난', '세 친구와의 길고 긴 대화', '폭풍 속에서 말씀하시는 하나님', '고난 끝에 갑절의 회복과 축복'],
     verse: '"내가 알기에는 나의 구속자가 살아 계시니" (욥 19:25)' },
@@ -152,7 +152,7 @@ const DECK = [
   { type: 'verse', theme: 'green', quote: '"여호와는 나의 목자시니 내가 부족함이 없으리로다"', cite: '시편 23편 1절 (개역한글)' },
 
   /* ============ PART 7. 성경의 흐름 ============ */
-  { type: 'chapter', theme: 'amber', part: 7, emoji: '🚂🛤️', title: '성경의 흐름을 한눈에!', sub: '하나님의 구원 계획과 이스라엘의 역사 — 시대 기차여행' },
+  { type: 'chapter', theme: 'amber', part: 7, emoji: '🚂🛤️', title: '성경의 흐름을 한눈에!', sub: '하나님의 구원 계획과 이스라엘의 역사 — 시대 기차여행', page: '02-bible-flow.html', short: '성경의 흐름' },
   { type: 'card', theme: 'amber', ico: '🌍', num: '1', title: '창조 시대', meta: '창세기 1~11장', tline: '하나님이 모든 것을 창조하셨어요',
     bullets: ['하나님의 천지창조', '아담과 하와의 죄(타락)', '노아의 방주와 홍수 심판', '바벨탑 사건 — 그래도 구원을 약속하셨어요 (창 3:15)'] },
   { type: 'card', theme: 'amber', ico: '⛺', num: '2', title: '족장 시대', meta: '창세기 12~50장', tline: '언약의 가족을 부르셨어요',
@@ -175,7 +175,7 @@ const DECK = [
     bullets: ['스룹바벨 — 성전 재건', '에스라 — 말씀으로 마음 재건', '느헤미야 — 52일 만에 성벽 재건'] },
   { type: 'card', theme: 'amber', ico: '🤫', num: '11', title: '침묵 시대 (신구약 중간기)', meta: '약 400년', tline: '조용히 메시아를 기다린 시간',
     bullets: ['말라기 이후 약 400년간 선지자의 기록이 없었어요', '하지만 하나님의 계획은 멈추지 않았어요', '때가 차매 — 예수님이 오셨어요! (갈 4:4)'] },
-  { type: 'flow', theme: 'amber', title: '시대의 흐름 한눈에 보기', steps: [
+  { type: 'flow', theme: 'amber', title: '시대의 흐름 한눈에 보기', cols: 6, steps: [
     ['🌍', '창조'], ['⛺', '족장'], ['🌊', '출애굽'], ['🏜️', '광야'], ['🎺', '정복'], ['⚖️', '사사'],
     ['👑', '통일왕국'], ['💔', '분열왕국'], ['⛓️', '포로'], ['🏗️', '귀환·회복'], ['🤫', '침묵기'], ['✝️', '예수님!', true]] },
   { type: 'verse', theme: 'amber', quote: '"나 여호와가 말하노라 너희를 향한 나의 생각은 내가 아나니<br>재앙이 아니라 곧 평안이요 너희 장래에 소망을 주려 하는 생각이라"', cite: '예레미야 29장 11절 (개역한글)' },

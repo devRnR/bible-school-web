@@ -18,7 +18,7 @@
   // 챕터 시작 위치(목차용)
   var chapterStarts = [];
   DECK.forEach(function (s, i) {
-    if (s.type === 'chapter') chapterStarts.push({ index: i, title: s.title, theme: s.theme, part: s.part });
+    if (s.type === 'chapter') chapterStarts.push({ index: i, title: s.title, theme: s.theme, part: s.part, page: s.page, short: s.short });
   });
 
   function buildSlide(s) {
@@ -62,14 +62,24 @@
       inner.appendChild(card);
     } else if (s.type === 'flow') {
       inner.appendChild(el('h2', 'flow-title', s.title));
-      var row = el('div', 'flow-row');
-      s.steps.forEach(function (st, i) {
-        if (i > 0) row.appendChild(el('span', 'flow-arr', '➜'));
-        var chip = el('div', 'flow-chip' + (st[2] ? ' gold' : ''),
-          '<span class="ico">' + st[0] + '</span><span class="lb">' + st[1] + '</span>');
-        row.appendChild(chip);
+      // cols가 있으면 그 개수씩 끊어 대칭 줄로 배치 (예: 8개 → 4 + 4)
+      var groups = [];
+      if (s.cols) {
+        for (var gi = 0; gi < s.steps.length; gi += s.cols) groups.push(s.steps.slice(gi, gi + s.cols));
+      } else {
+        groups = [s.steps];
+      }
+      groups.forEach(function (g, gIdx) {
+        if (gIdx > 0) inner.appendChild(el('div', 'flow-down', '⬇'));
+        var row = el('div', 'flow-row');
+        g.forEach(function (st, i) {
+          if (i > 0) row.appendChild(el('span', 'flow-arr', '➜'));
+          var chip = el('div', 'flow-chip' + (st[2] ? ' gold' : ''),
+            '<span class="ico">' + st[0] + '</span><span class="lb">' + st[1] + '</span>');
+          row.appendChild(chip);
+        });
+        inner.appendChild(row);
       });
-      inner.appendChild(row);
     } else if (s.type === 'points') {
       inner.appendChild(el('h2', 'flow-title', s.title));
       var pg = el('div', 'points-grid');
@@ -95,6 +105,16 @@
   });
 
   var current = -1;
+  var pageJump = document.getElementById('page-jump');
+
+  // 현재 슬라이드가 속한 단원 찾기 (해당 단원 교재 링크용)
+  function chapterAt(i) {
+    var found = null;
+    for (var c = 0; c < chapterStarts.length; c++) {
+      if (chapterStarts[c].index <= i) found = chapterStarts[c];
+    }
+    return found;
+  }
 
   function goTo(i, backwards) {
     if (i < 0) i = 0;
@@ -109,6 +129,19 @@
     bar.style.width = ((i + 1) / slides.length * 100) + '%';
     counter.textContent = (i + 1) + ' / ' + slides.length;
     if (location.hash !== '#' + (i + 1)) history.replaceState(null, '', '#' + (i + 1));
+
+    // 단원 교재 바로가기 버튼 갱신
+    var ch = chapterAt(i);
+    if (pageJump) {
+      if (ch && ch.page) {
+        pageJump.href = ch.page;
+        pageJump.textContent = '📖 「' + ch.short + '」 교재로';
+        pageJump.style.setProperty('--accent', THEME_COLOR[ch.theme]);
+        pageJump.classList.add('show');
+      } else {
+        pageJump.classList.remove('show');
+      }
+    }
   }
 
   function next() { goTo(current + 1, false); }
@@ -134,7 +167,15 @@
     touchX = null;
   }, { passive: true });
 
-  // 해시(#슬라이드번호)로 시작 위치 복원
-  var start = parseInt((location.hash || '').slice(1), 10);
-  goTo(isNaN(start) ? 0 : start - 1, false);
+  // 해시로 시작 위치 복원 — #슬라이드번호 또는 #part단원번호
+  var hash = (location.hash || '').slice(1);
+  var startIndex = 0;
+  var partMatch = hash.match(/^part(\d+)$/);
+  if (partMatch) {
+    chapterStarts.forEach(function (c) { if (c.part === parseInt(partMatch[1], 10)) startIndex = c.index; });
+  } else {
+    var n = parseInt(hash, 10);
+    if (!isNaN(n)) startIndex = n - 1;
+  }
+  goTo(startIndex, false);
 })();

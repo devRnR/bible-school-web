@@ -22,6 +22,8 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: "Gowun Dodum", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  word-break: keep-all;          /* 한글은 단어 단위로 줄바꿈 */
+  overflow-wrap: break-word;
   overflow: hidden;
   background-image:
     radial-gradient(circle at 25px 25px, rgba(232, 197, 138, 0.16) 6px, transparent 7px),
@@ -206,6 +208,8 @@ h1, h2, h3, .font-title { font-family: "Jua", "Apple SD Gothic Neo", sans-serif;
 .flow-chip .lb { font-family: "Jua", sans-serif; font-size: clamp(0.85rem, 2.3vmin, 1.25rem); }
 .flow-chip.gold { background: var(--yellow); border-color: #e8950f; }
 .flow-arr { align-self: center; color: var(--accent); font-size: clamp(1.1rem, 3vmin, 1.8rem); }
+.flow-row + .flow-row, .flow-down + .flow-row { margin-top: 0.6vmin; }
+.flow-down { color: var(--accent); font-size: clamp(1.2rem, 3.2vmin, 2rem); margin: 0.8vmin 0; }
 
 /* ---------- 포인트 슬라이드 ---------- */
 .points-grid {
@@ -287,19 +291,48 @@ h1, h2, h3, .font-title { font-family: "Jua", "Apple SD Gothic Neo", sans-serif;
   min-width: 76px;
   text-align: center;
 }
-.deck-home {
+/* 우상단 교재/슬라이드 전환 버튼 */
+.view-switch {
   position: fixed;
   top: 14px; right: 14px;
-  z-index: 30;
+  z-index: 40;
+  display: flex;
+  gap: 8px;
+}
+.view-switch a {
   font-family: "Jua", sans-serif;
   font-size: 0.9rem;
   text-decoration: none;
   background: var(--paper);
-  color: #7a6a58;
-  border: 2px solid #43392f22;
+  color: #4f86e8;
+  border: 2px solid #4f86e8;
   border-radius: 999px;
-  padding: 6px 14px;
+  padding: 7px 15px;
+  box-shadow: 0 2px 0 rgba(67, 57, 47, 0.12);
+  transition: transform 0.15s ease;
 }
+.view-switch a:hover { transform: translateY(-2px); }
+.view-switch a.active { background: #4f86e8; color: #fff; }
+
+/* 좌하단 — 이 단원 교재 바로가기 */
+.page-jump {
+  position: fixed;
+  bottom: 16px; left: 16px;
+  z-index: 30;
+  display: none;
+  font-family: "Jua", sans-serif;
+  font-size: 0.95rem;
+  text-decoration: none;
+  background: var(--paper);
+  color: var(--accent, #4f86e8);
+  border: 3px solid var(--accent, #4f86e8);
+  border-radius: 999px;
+  padding: 9px 18px;
+  box-shadow: 0 3px 0 rgba(67, 57, 47, 0.12);
+  transition: transform 0.15s ease;
+}
+.page-jump.show { display: inline-block; }
+.page-jump:hover { transform: translateY(-2px); }
 
 @media (prefers-reduced-motion: reduce) {
   .slide.active { animation: none; }

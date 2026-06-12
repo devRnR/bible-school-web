@@ -36,6 +36,8 @@ body {
   font-family: "Gowun Dodum", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   font-size: 17px;
   line-height: 1.65;
+  word-break: keep-all;          /* 한글은 단어 단위로 줄바꿈 */
+  overflow-wrap: break-word;
   /* 은은한 물방울 무늬 배경 (CSS로만) */
   background-image:
     radial-gradient(circle at 25px 25px, rgba(232, 197, 138, 0.16) 6px, transparent 7px),
@@ -76,6 +78,28 @@ h1, h2, h3, .font-title {
 }
 .topbar .home::before { content: "🏠 "; }
 .topbar .where { color: var(--ink-soft); font-size: 0.92rem; }
+
+/* 교재 ↔ 슬라이드 전환 버튼 */
+.view-switch { display: flex; gap: 8px; }
+.view-switch a {
+  font-family: "Jua", sans-serif;
+  font-size: 0.88rem;
+  text-decoration: none;
+  background: var(--paper);
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: 999px;
+  padding: 5px 13px;
+  transition: transform 0.15s ease;
+}
+.view-switch a:hover { transform: translateY(-2px); }
+.view-switch a.active { background: var(--accent); color: #fff; }
+.view-switch.fixed {
+  position: fixed;
+  top: 14px; right: 14px;
+  z-index: 40;
+}
+.view-switch.fixed a { box-shadow: 0 2px 0 rgba(67, 57, 47, 0.12); }
 
 /* ---------- 페이지 헤더 ---------- */
 .page-header {
