@@ -294,22 +294,6 @@ h1, h2, h3, .font-title { font-family: "Jua", "Apple SD Gothic Neo", sans-serif;
   min-width: 76px;
   text-align: center;
 }
-.deck-footer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 62px;
-  z-index: 20;
-  text-align: center;
-  color: var(--ink-soft);
-  font-size: 0.78rem;
-  pointer-events: auto;
-}
-.deck-footer a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
 /* 우상단 교재/슬라이드 전환 버튼 */
 .view-switch {
   position: fixed;
@@ -353,6 +337,19 @@ h1, h2, h3, .font-title { font-family: "Jua", "Apple SD Gothic Neo", sans-serif;
 .page-jump.show { display: inline-block; }
 .page-jump:hover { transform: translateY(-2px); }
 
+/* ---------- 카피라이트 (우하단 구석, 슬라이드 방해 X) ---------- */
+.deck-footer {
+  position: fixed;
+  right: 16px;
+  bottom: 22px;
+  z-index: 25;
+  font-size: 0.72rem;
+  color: #a8987f;
+  pointer-events: none;
+}
+.deck-footer a { color: inherit; pointer-events: auto; text-decoration: underline; text-underline-offset: 2px; }
+@media (max-width: 820px) { .deck-footer { display: none; } }
+
 /* ---------- 전체 장표 오버뷰 (PPT 여러 슬라이드 보기) ---------- */
 .overview {
   position: fixed;
@@ -391,6 +388,12 @@ h1, h2, h3, .font-title { font-family: "Jua", "Apple SD Gothic Neo", sans-serif;
   overflow-x: auto;
   padding: 10px 30px 30px;
   scroll-behavior: smooth;
+  cursor: grab;
+}
+.ov-strip.dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  user-select: none;
 }
 .ov-thumb {
   position: relative;

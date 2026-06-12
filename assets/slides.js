@@ -191,6 +191,29 @@
   document.getElementById('ov-close').addEventListener('click', closeOverview);
   overview.addEventListener('click', function (e) { if (e.target === overview) closeOverview(); });
 
+  // ----- 오버뷰 드래그 스크롤 (마우스로 잡고 끌어서 넘기기) -----
+  var drag = null;
+  var suppressClick = false;
+  ovStrip.addEventListener('pointerdown', function (e) {
+    drag = { x: e.clientX, scroll: ovStrip.scrollLeft, moved: false };
+    ovStrip.classList.add('dragging');
+  });
+  window.addEventListener('pointermove', function (e) {
+    if (!drag) return;
+    var dx = e.clientX - drag.x;
+    if (Math.abs(dx) > 6) drag.moved = true;
+    if (drag.moved) ovStrip.scrollLeft = drag.scroll - dx;
+  });
+  window.addEventListener('pointerup', function () {
+    if (drag && drag.moved) suppressClick = true;
+    drag = null;
+    ovStrip.classList.remove('dragging');
+  });
+  // 드래그 후 손을 떼는 순간의 클릭이 썸네일 점프로 오작동하지 않게 한 번 무시
+  ovStrip.addEventListener('click', function (e) {
+    if (suppressClick) { e.preventDefault(); e.stopPropagation(); suppressClick = false; }
+  }, true);
+
   document.addEventListener('keydown', function (e) {
     if (overview.classList.contains('open')) {
       if (e.key === 'Escape') { e.preventDefault(); closeOverview(); }
