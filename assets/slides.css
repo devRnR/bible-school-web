@@ -1,0 +1,306 @@
+/* ============================================
+   어린이 성경학교 — 수업용 슬라이드
+   ============================================ */
+
+:root {
+  --bg: #fdf6e9;
+  --paper: #ffffff;
+  --ink: #43392f;
+  --ink-soft: #7a6a58;
+  --accent: #4f86e8;
+  --accent-soft: #e3edff;
+  --yellow: #ffd166;
+  --line: #f0e4cf;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Gowun Dodum", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  overflow: hidden;
+  background-image:
+    radial-gradient(circle at 25px 25px, rgba(232, 197, 138, 0.16) 6px, transparent 7px),
+    radial-gradient(circle at 95px 85px, rgba(232, 197, 138, 0.12) 4px, transparent 5px);
+  background-size: 130px 130px;
+}
+
+h1, h2, h3, .font-title { font-family: "Jua", "Apple SD Gothic Neo", sans-serif; font-weight: 400; }
+
+/* 슬라이드별 테마색 */
+.slide[data-theme="blue"]   { --accent: #4f86e8; --accent-soft: #e3edff; }
+.slide[data-theme="amber"]  { --accent: #e8950f; --accent-soft: #fff0d4; }
+.slide[data-theme="pink"]   { --accent: #e0608f; --accent-soft: #ffe4ef; }
+.slide[data-theme="purple"] { --accent: #8a63d2; --accent-soft: #efe7ff; }
+.slide[data-theme="brown"]  { --accent: #bd6b2e; --accent-soft: #fbe8d5; }
+.slide[data-theme="green"]  { --accent: #2da06f; --accent-soft: #ddf5e9; }
+.slide[data-theme="red"]    { --accent: #db5a50; --accent-soft: #ffe5e1; }
+.slide[data-theme="sky"]    { --accent: #2b9cd8; --accent-soft: #def2fd; }
+
+/* ---------- 슬라이드 공통 ---------- */
+.slide {
+  display: none;
+  position: absolute;
+  inset: 0;
+  padding: clamp(20px, 5vmin, 64px);
+  padding-bottom: clamp(64px, 10vmin, 96px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: auto;
+}
+.slide.active { display: flex; animation: slide-in 0.45s ease; }
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(34px); }
+  to   { opacity: 1; transform: none; }
+}
+.slide.active.back { animation: slide-in-back 0.45s ease; }
+@keyframes slide-in-back {
+  from { opacity: 0; transform: translateX(-34px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.slide .inner { max-width: 1080px; width: 100%; margin: auto; }
+
+/* ---------- 표지 ---------- */
+.cover-emoji { font-size: clamp(3.4rem, 11vmin, 6.5rem); margin-bottom: 2vmin; }
+.cover-title {
+  margin: 0 0 1.6vmin;
+  font-size: clamp(2.2rem, 7.5vmin, 4.6rem);
+  line-height: 1.25;
+}
+.cover-title .hl { color: var(--accent); }
+.cover-sub { margin: 0; color: var(--ink-soft); font-size: clamp(1rem, 2.8vmin, 1.5rem); }
+.cover-hint {
+  margin-top: 5vmin;
+  display: inline-block;
+  background: var(--paper);
+  border: 3px solid var(--accent);
+  border-radius: 999px;
+  padding: 1.2vmin 3vmin;
+  font-family: "Jua", sans-serif;
+  color: var(--accent);
+  font-size: clamp(0.9rem, 2.2vmin, 1.2rem);
+}
+
+/* ---------- 목차 ---------- */
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8vmin;
+  margin-top: 3vmin;
+}
+.toc-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--paper);
+  border: 3px solid var(--tc, #4f86e8);
+  border-radius: 18px;
+  padding: 1.6vmin 2vmin;
+  cursor: pointer;
+  font-family: "Jua", sans-serif;
+  font-size: clamp(1rem, 2.6vmin, 1.4rem);
+  color: var(--ink);
+  text-align: left;
+  transition: transform 0.15s ease;
+}
+.toc-item:hover { transform: translateY(-3px); }
+.toc-item .n {
+  flex: none;
+  width: 2.2em; height: 2.2em;
+  display: grid; place-items: center;
+  background: var(--tc);
+  color: #fff;
+  border-radius: 50%;
+}
+
+/* ---------- 챕터 표지 ---------- */
+.part-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-family: "Jua", sans-serif;
+  border-radius: 999px;
+  padding: 0.9vmin 3vmin;
+  font-size: clamp(0.95rem, 2.4vmin, 1.3rem);
+  margin-bottom: 2.4vmin;
+}
+.part-emoji { font-size: clamp(3.4rem, 12vmin, 7rem); margin: 1vmin 0 2vmin; }
+.part-title { margin: 0 0 1.6vmin; font-size: clamp(2rem, 7vmin, 4.2rem); color: var(--accent); }
+.part-sub { margin: 0; color: var(--ink-soft); font-size: clamp(1rem, 2.8vmin, 1.5rem); }
+
+/* ---------- 카드 슬라이드 ---------- */
+.card-slide {
+  background: var(--paper);
+  border: 4px solid var(--accent);
+  border-radius: 28px;
+  padding: clamp(20px, 4.5vmin, 52px);
+  text-align: left;
+  box-shadow: 0 8px 0 rgba(67, 57, 47, 0.08);
+}
+.cs-head { display: flex; align-items: center; flex-wrap: wrap; gap: 1.6vmin; margin-bottom: 1vmin; }
+.cs-ico { font-size: clamp(2.2rem, 6.5vmin, 4rem); line-height: 1; }
+.cs-title { margin: 0; font-size: clamp(1.8rem, 5.5vmin, 3.4rem); color: var(--ink); }
+.cs-meta {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: "Jua", sans-serif;
+  border-radius: 999px;
+  padding: 0.5vmin 2vmin;
+  font-size: clamp(0.85rem, 2.2vmin, 1.2rem);
+  white-space: nowrap;
+}
+.cs-theme {
+  margin: 0 0 2vmin;
+  font-family: "Jua", sans-serif;
+  color: var(--accent);
+  font-size: clamp(1.15rem, 3.4vmin, 2rem);
+}
+.cs-bullets { margin: 0; padding: 0; list-style: none; }
+.cs-bullets li {
+  position: relative;
+  padding-left: 1.5em;
+  margin: 1.4vmin 0;
+  font-size: clamp(1rem, 3vmin, 1.7rem);
+  line-height: 1.55;
+}
+.cs-bullets li::before { content: "✿"; position: absolute; left: 0; color: var(--accent); }
+.cs-verse {
+  margin-top: 2.4vmin;
+  background: var(--accent-soft);
+  border-left: 6px solid var(--accent);
+  border-radius: 0 16px 16px 0;
+  padding: 1.6vmin 2.4vmin;
+  font-size: clamp(0.95rem, 2.7vmin, 1.5rem);
+}
+.cs-verse strong { color: var(--accent); font-family: "Jua", sans-serif; }
+
+/* ---------- 흐름 슬라이드 ---------- */
+.flow-title { margin: 0 0 3vmin; font-size: clamp(1.7rem, 5vmin, 3.2rem); color: var(--accent); }
+.flow-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.2vmin;
+}
+.flow-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6vmin;
+  min-width: clamp(80px, 11vmin, 130px);
+  background: var(--paper);
+  border: 3px solid var(--accent);
+  border-radius: 18px;
+  padding: 1.6vmin 1.4vmin;
+}
+.flow-chip .ico { font-size: clamp(1.6rem, 4.5vmin, 2.6rem); line-height: 1; }
+.flow-chip .lb { font-family: "Jua", sans-serif; font-size: clamp(0.85rem, 2.3vmin, 1.25rem); }
+.flow-chip.gold { background: var(--yellow); border-color: #e8950f; }
+.flow-arr { align-self: center; color: var(--accent); font-size: clamp(1.1rem, 3vmin, 1.8rem); }
+
+/* ---------- 포인트 슬라이드 ---------- */
+.points-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.8vmin;
+  margin-top: 3vmin;
+}
+.point-card {
+  background: var(--paper);
+  border: 3px solid var(--accent);
+  border-radius: 20px;
+  padding: 2.4vmin;
+}
+.point-card .ico { font-size: clamp(2rem, 5.5vmin, 3.2rem); }
+.point-card h3 { margin: 0.8vmin 0 0.6vmin; color: var(--accent); font-size: clamp(1.1rem, 3vmin, 1.7rem); }
+.point-card p { margin: 0; font-size: clamp(0.92rem, 2.4vmin, 1.3rem); color: var(--ink); }
+
+/* ---------- 암송 슬라이드 ---------- */
+.verse-slide {
+  background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 62%, #fff));
+  border-radius: 30px;
+  color: #fff;
+  padding: clamp(28px, 7vmin, 80px);
+}
+.verse-slide .label {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.25);
+  font-family: "Jua", sans-serif;
+  border-radius: 999px;
+  padding: 0.8vmin 2.6vmin;
+  margin-bottom: 3vmin;
+  font-size: clamp(0.95rem, 2.6vmin, 1.4rem);
+}
+.verse-slide blockquote {
+  margin: 0 0 2vmin;
+  font-family: "Jua", sans-serif;
+  font-size: clamp(1.4rem, 4.6vmin, 2.8rem);
+  line-height: 1.6;
+}
+.verse-slide cite { font-style: normal; opacity: 0.92; font-size: clamp(1rem, 2.8vmin, 1.5rem); }
+
+/* ---------- 내비게이션 UI ---------- */
+.deck-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 6px;
+  background: var(--accent, #4f86e8);
+  width: 0;
+  z-index: 30;
+  transition: width 0.3s ease;
+}
+.deck-nav {
+  position: fixed;
+  bottom: 16px;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  z-index: 30;
+}
+.deck-nav button {
+  font-family: "Jua", sans-serif;
+  font-size: 1rem;
+  border: 3px solid #43392f22;
+  background: var(--paper);
+  color: #43392f;
+  border-radius: 999px;
+  padding: 9px 20px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 rgba(67, 57, 47, 0.12);
+}
+.deck-nav button:hover { transform: translateY(-2px); }
+.deck-counter {
+  font-family: "Jua", sans-serif;
+  color: #7a6a58;
+  font-size: 0.95rem;
+  min-width: 76px;
+  text-align: center;
+}
+.deck-home {
+  position: fixed;
+  top: 14px; right: 14px;
+  z-index: 30;
+  font-family: "Jua", sans-serif;
+  font-size: 0.9rem;
+  text-decoration: none;
+  background: var(--paper);
+  color: #7a6a58;
+  border: 2px solid #43392f22;
+  border-radius: 999px;
+  padding: 6px 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide.active { animation: none; }
+}

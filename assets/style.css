@@ -110,6 +110,19 @@ h1, h2, h3, .font-title {
   color: var(--ink-soft);
   font-size: 1.06rem;
 }
+.page-header .slide-link {
+  display: inline-block;
+  margin-top: 14px;
+  background: var(--yellow);
+  color: #6b4d00;
+  font-family: "Jua", sans-serif;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 9px 22px;
+  box-shadow: 0 3px 0 rgba(107, 77, 0, 0.25);
+  transition: transform 0.15s ease;
+}
+.page-header .slide-link:hover { transform: scale(1.05); }
 .page-header .hero-art { margin-top: 18px; }
 .page-header .hero-art svg { max-width: 100%; height: auto; }
 
