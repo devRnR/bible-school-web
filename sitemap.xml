@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://devrnr.github.io/bible-school-web/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://devrnr.github.io/bible-school-web/01-what-is-bible.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devrnr.github.io/bible-school-web/02-bible-flow.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devrnr.github.io/bible-school-web/03-covenants.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devrnr.github.io/bible-school-web/04-pentateuch.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devrnr.github.io/bible-school-web/05-history-books.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devrnr.github.io/bible-school-web/06-wisdom-books.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devrnr.github.io/bible-school-web/07-major-prophets.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devrnr.github.io/bible-school-web/08-minor-prophets.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://devrnr.github.io/bible-school-web/slides.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://devrnr.github.io/bible-school-web/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>

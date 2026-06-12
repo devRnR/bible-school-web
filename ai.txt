@@ -1,0 +1,12 @@
+# ai.txt — AI 학습/수집 정책 선언 (Text & Data Mining Reservation)
+# 본 사이트의 모든 콘텐츠(코드, SVG 일러스트, 편집·배열, 텍스트)는
+# 저작권으로 보호되며, AI 학습·생성·재배포 목적의 수집을 명시적으로 거부(reserve)합니다.
+
+Disallow: /
+
+# 차단 대상 예시: GPTBot, ClaudeBot, anthropic-ai, Google-Extended,
+# Applebot-Extended, PerplexityBot, CCBot, Bytespider, Meta-ExternalAgent 등
+# 일반 검색엔진(Googlebot, Bingbot, Yeti)의 색인은 허용합니다.
+
+Contact: shy.developer.devo@gmail.com
+Policy: https://devrnr.github.io/bible-school-web/terms.html

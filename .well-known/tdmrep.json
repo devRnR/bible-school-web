@@ -1,0 +1,5 @@
+{
+  "$schema": "https://www.w3.org/ns/tdmrep",
+  "tdm-reservation": 1,
+  "tdm-policy": "https://devrnr.github.io/bible-school-web/terms.html"
+}
