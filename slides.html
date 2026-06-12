@@ -27,7 +27,20 @@
   <button id="btn-prev" type="button">⬅ 이전</button>
   <span id="counter" class="deck-counter">1 / 1</span>
   <button id="btn-next" type="button">다음 ➡</button>
+  <button id="btn-overview" type="button">🎞️ 전체 보기</button>
 </nav>
+
+<div id="overview" class="overview" aria-hidden="true">
+  <div class="ov-head">
+    <span>🎞️ 전체 장표 — 골라서 바로 이동해요 (Esc로 닫기)</span>
+    <button id="ov-close" type="button">✕ 닫기</button>
+  </div>
+  <div id="ov-strip" class="ov-strip"></div>
+</div>
+
+<footer class="deck-footer">
+  © 2026 tinybuild.lab · Contact: <a href="mailto:shy.developer.devo@gmail.com">shy.developer.devo@gmail.com</a>
+</footer>
 
 <script src="assets/slides-data.js"></script>
 <script src="assets/slides.js"></script>

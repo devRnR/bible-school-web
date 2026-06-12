@@ -569,6 +569,15 @@ td .chip {
   text-align: center;
   color: var(--ink-soft);
   font-size: 0.85rem;
+  line-height: 1.8;
+}
+.site-footer .copyright {
+  font-size: 0.78rem;
+}
+.site-footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* ---------- 모션 최소화 / 인쇄 ---------- */

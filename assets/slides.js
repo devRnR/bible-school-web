@@ -150,18 +150,65 @@
   document.getElementById('btn-next').addEventListener('click', next);
   document.getElementById('btn-prev').addEventListener('click', prev);
 
+  // ----- 전체 장표 오버뷰 -----
+  var overview = document.getElementById('overview');
+  var ovStrip = document.getElementById('ov-strip');
+  var ovBuilt = false;
+
+  function buildOverview() {
+    if (ovBuilt) return;
+    ovBuilt = true;
+    DECK.forEach(function (s, i) {
+      var th = el('button', 'ov-thumb');
+      th.type = 'button';
+      var box = el('div', 'ov-scale');
+      var clone = slides[i].cloneNode(true);
+      clone.classList.add('active');
+      clone.classList.remove('back');
+      box.appendChild(clone);
+      th.appendChild(box);
+      th.appendChild(el('span', 'ov-num', i + 1));
+      th.addEventListener('click', function () { closeOverview(); goTo(i); });
+      ovStrip.appendChild(th);
+    });
+  }
+
+  function openOverview() {
+    buildOverview();
+    overview.classList.add('open');
+    overview.setAttribute('aria-hidden', 'false');
+    var thumbs = ovStrip.children;
+    for (var t = 0; t < thumbs.length; t++) thumbs[t].classList.toggle('now', t === current);
+    if (thumbs[current]) thumbs[current].scrollIntoView({ inline: 'center', block: 'nearest' });
+  }
+
+  function closeOverview() {
+    overview.classList.remove('open');
+    overview.setAttribute('aria-hidden', 'true');
+  }
+
+  document.getElementById('btn-overview').addEventListener('click', openOverview);
+  document.getElementById('ov-close').addEventListener('click', closeOverview);
+  overview.addEventListener('click', function (e) { if (e.target === overview) closeOverview(); });
+
   document.addEventListener('keydown', function (e) {
+    if (overview.classList.contains('open')) {
+      if (e.key === 'Escape') { e.preventDefault(); closeOverview(); }
+      return; // 오버뷰가 열려 있으면 좌우 키는 썸네일 스크롤에 양보
+    }
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); next(); }
     else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
     else if (e.key === 'Home') { e.preventDefault(); goTo(0); }
     else if (e.key === 'End') { e.preventDefault(); goTo(slides.length - 1); }
+    else if (e.key === 'Escape') { e.preventDefault(); openOverview(); }
   });
 
-  // 터치 스와이프
+  // 터치 스와이프 (오버뷰가 열려 있을 땐 스트립 스크롤에 양보)
   var touchX = null;
   document.addEventListener('touchstart', function (e) { touchX = e.changedTouches[0].clientX; }, { passive: true });
   document.addEventListener('touchend', function (e) {
     if (touchX === null) return;
+    if (overview.classList.contains('open')) { touchX = null; return; }
     var dx = e.changedTouches[0].clientX - touchX;
     if (Math.abs(dx) > 60) { dx < 0 ? next() : prev(); }
     touchX = null;
@@ -178,4 +225,5 @@
     if (!isNaN(n)) startIndex = n - 1;
   }
   goTo(startIndex, false);
+  if (hash === 'overview') openOverview();
 })();
