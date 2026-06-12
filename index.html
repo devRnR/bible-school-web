@@ -60,55 +60,137 @@
     <!-- 직접 그린 SVG 일러스트 (저작권 걱정 없음) -->
     <div class="hero-art">
       <svg viewBox="0 -24 640 264" width="640" role="img" aria-label="펼쳐진 성경책 위로 무지개와 비둘기가 있는 그림">
+        <defs>
+          <radialGradient id="hhSun" cx="38%" cy="34%" r="72%">
+            <stop offset="0" stop-color="#fff0b8"/><stop offset="55%" stop-color="#ffd166"/><stop offset="100%" stop-color="#f3a93c"/>
+          </radialGradient>
+          <radialGradient id="hhSunGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#ffe9a8" stop-opacity="0.85"/><stop offset="100%" stop-color="#ffe9a8" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="hhCover" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#9a72e0"/><stop offset="100%" stop-color="#7850c0"/>
+          </linearGradient>
+          <linearGradient id="hhPage" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff"/><stop offset="100%" stop-color="#fdeecf"/>
+          </linearGradient>
+          <radialGradient id="hhHalo" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#fff3c4" stop-opacity="0.95"/><stop offset="100%" stop-color="#fff3c4" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="hhCloud" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff"/><stop offset="100%" stop-color="#eef2fb"/>
+          </linearGradient>
+          <linearGradient id="hhDove" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff"/><stop offset="100%" stop-color="#e7ecf6"/>
+          </linearGradient>
+          <linearGradient id="hhCross" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffd86b"/><stop offset="100%" stop-color="#e8950f"/>
+          </linearGradient>
+        </defs>
         <!-- 해 -->
-        <g class="anim-spin" style="transform-box: fill-box;">
-          <circle cx="560" cy="56" r="26" fill="#ffd166"/>
-          <g stroke="#ffd166" stroke-width="6" stroke-linecap="round">
-            <line x1="560" y1="14" x2="560" y2="2"/><line x1="560" y1="98" x2="560" y2="110"/>
-            <line x1="518" y1="56" x2="506" y2="56"/><line x1="602" y1="56" x2="614" y2="56"/>
-            <line x1="530" y1="26" x2="522" y2="18"/><line x1="590" y1="86" x2="598" y2="94"/>
-            <line x1="530" y1="86" x2="522" y2="94"/><line x1="590" y1="26" x2="598" y2="18"/>
+        <g>
+          <circle cx="560" cy="56" r="48" fill="url(#hhSunGlow)"/>
+          <g class="anim-spin" style="transform-box: fill-box;">
+            <g stroke="#ffd166" stroke-width="6" stroke-linecap="round">
+              <line x1="560" y1="12" x2="560" y2="0"/><line x1="560" y1="100" x2="560" y2="112"/>
+              <line x1="516" y1="56" x2="504" y2="56"/><line x1="604" y1="56" x2="616" y2="56"/>
+              <line x1="529" y1="25" x2="520" y2="16"/><line x1="591" y1="87" x2="600" y2="96"/>
+              <line x1="529" y1="87" x2="520" y2="96"/><line x1="591" y1="25" x2="600" y2="16"/>
+            </g>
+            <g stroke="#f8a13f" stroke-width="4.5" stroke-linecap="round">
+              <line x1="538" y1="19" x2="533" y2="10"/><line x1="582" y1="19" x2="587" y2="10"/>
+              <line x1="538" y1="93" x2="533" y2="102"/><line x1="582" y1="93" x2="587" y2="102"/>
+            </g>
           </g>
+          <circle cx="560" cy="56" r="25" fill="url(#hhSun)"/>
+          <ellipse cx="551" cy="47" rx="8" ry="6" fill="#fff6d8" opacity="0.6"/>
         </g>
         <!-- 무지개 -->
         <g fill="none" stroke-linecap="round">
           <path class="anim-draw" d="M120 190 A 200 200 0 0 1 520 190" stroke="#f25c54" stroke-width="13"/>
-          <path class="anim-draw" d="M138 190 A 182 182 0 0 1 502 190" stroke="#f8a13f" stroke-width="13" style="animation-delay:0.55s"/>
-          <path class="anim-draw" d="M156 190 A 164 164 0 0 1 484 190" stroke="#ffd166" stroke-width="13" style="animation-delay:0.7s"/>
-          <path class="anim-draw" d="M174 190 A 146 146 0 0 1 466 190" stroke="#7cc576" stroke-width="13" style="animation-delay:0.85s"/>
-          <path class="anim-draw" d="M192 190 A 128 128 0 0 1 448 190" stroke="#5b8def" stroke-width="13" style="animation-delay:1s"/>
+          <path class="anim-draw" d="M138 190 A 182 182 0 0 1 502 190" stroke="#f8a13f" stroke-width="13" style="animation-delay:0.5s"/>
+          <path class="anim-draw" d="M156 190 A 164 164 0 0 1 484 190" stroke="#ffd166" stroke-width="13" style="animation-delay:0.65s"/>
+          <path class="anim-draw" d="M174 190 A 146 146 0 0 1 466 190" stroke="#7cc576" stroke-width="13" style="animation-delay:0.8s"/>
+          <path class="anim-draw" d="M192 190 A 128 128 0 0 1 448 190" stroke="#5b8def" stroke-width="13" style="animation-delay:0.95s"/>
+          <path class="anim-draw" d="M210 190 A 110 110 0 0 1 430 190" stroke="#9b6fd0" stroke-width="13" style="animation-delay:1.1s"/>
         </g>
         <!-- 구름 -->
-        <g fill="#ffffff" stroke="#e8e0d0" stroke-width="3">
-          <ellipse cx="110" cy="186" rx="52" ry="24"/>
-          <ellipse cx="532" cy="186" rx="52" ry="24"/>
+        <g>
+          <ellipse cx="110" cy="201" rx="56" ry="11" fill="#43392f" opacity="0.06"/>
+          <ellipse cx="86" cy="185" rx="25" ry="17" fill="url(#hhCloud)"/>
+          <ellipse cx="120" cy="179" rx="31" ry="23" fill="url(#hhCloud)"/>
+          <ellipse cx="146" cy="186" rx="23" ry="16" fill="url(#hhCloud)"/>
+          <ellipse cx="110" cy="193" rx="52" ry="15" fill="url(#hhCloud)"/>
+        </g>
+        <g>
+          <ellipse cx="532" cy="201" rx="56" ry="11" fill="#43392f" opacity="0.06"/>
+          <ellipse cx="508" cy="185" rx="25" ry="17" fill="url(#hhCloud)"/>
+          <ellipse cx="542" cy="179" rx="31" ry="23" fill="url(#hhCloud)"/>
+          <ellipse cx="566" cy="186" rx="22" ry="16" fill="url(#hhCloud)"/>
+          <ellipse cx="532" cy="193" rx="52" ry="15" fill="url(#hhCloud)"/>
         </g>
         <!-- 펼쳐진 성경 -->
         <g class="anim-bob" style="transform-box: fill-box;">
-          <path d="M225 168 Q 320 140 415 168 L 415 212 Q 320 186 225 212 Z" fill="#8a63d2"/>
-          <path d="M232 162 Q 320 136 408 162 L 408 204 Q 320 180 232 204 Z" fill="#fffaf0" stroke="#e3d8c2" stroke-width="3"/>
-          <line x1="320" y1="142" x2="320" y2="186" stroke="#e3d8c2" stroke-width="3"/>
-          <g stroke="#c9b8e8" stroke-width="4" stroke-linecap="round">
-            <line x1="252" y1="166" x2="302" y2="156"/><line x1="252" y1="178" x2="302" y2="168"/><line x1="252" y1="190" x2="302" y2="180"/>
-            <line x1="338" y1="156" x2="388" y2="166"/><line x1="338" y1="168" x2="388" y2="178"/><line x1="338" y1="180" x2="388" y2="190"/>
+          <ellipse cx="320" cy="216" rx="104" ry="13" fill="#43392f" opacity="0.07"/>
+          <!-- 십자가 후광 -->
+          <circle cx="320" cy="112" r="46" fill="url(#hhHalo)" class="anim-blink"/>
+          <!-- 표지 -->
+          <path d="M222 170 Q 320 140 418 170 L 418 214 Q 320 186 222 214 Z" fill="url(#hhCover)"/>
+          <path d="M222 170 Q 320 140 418 170 L 418 177 Q 320 148 222 177 Z" fill="#b79ae8" opacity="0.5"/>
+          <!-- 페이지 금박 가장자리 -->
+          <path d="M230 166 Q 320 138 410 166 L 410 173 Q 320 145 230 173 Z" fill="#f4d98a"/>
+          <!-- 펼친 면 -->
+          <path d="M232 162 Q 320 136 408 162 L 408 206 Q 320 180 232 206 Z" fill="url(#hhPage)" stroke="#e3d8c2" stroke-width="2.5"/>
+          <line x1="320" y1="143" x2="320" y2="188" stroke="#e3d8c2" stroke-width="2.5"/>
+          <!-- 왼쪽 면 하이라이트 -->
+          <path d="M240 164 Q 296 147 314 153 L 314 184 Q 298 178 240 195 Z" fill="#ffffff" opacity="0.4"/>
+          <g stroke="#c9b8e8" stroke-width="3.5" stroke-linecap="round">
+            <line x1="252" y1="166" x2="302" y2="156"/><line x1="252" y1="177" x2="302" y2="167"/><line x1="252" y1="188" x2="298" y2="178"/>
+            <line x1="338" y1="156" x2="388" y2="166"/><line x1="338" y1="167" x2="388" y2="177"/><line x1="342" y1="178" x2="388" y2="188"/>
           </g>
+          <!-- 책갈피 리본 -->
+          <path d="M326 188 L 338 188 L 338 226 L 332 218 L 326 226 Z" fill="#e85a6a"/>
           <!-- 십자가 -->
-          <g stroke="#e8950f" stroke-width="7" stroke-linecap="round">
-            <line x1="320" y1="96" x2="320" y2="134"/>
-            <line x1="304" y1="110" x2="336" y2="110"/>
+          <g stroke="url(#hhCross)" stroke-width="7.5" stroke-linecap="round">
+            <line x1="320" y1="92" x2="320" y2="134"/>
+            <line x1="302" y1="108" x2="338" y2="108"/>
           </g>
+          <circle cx="320" cy="100" r="3" fill="#fff6d8" opacity="0.85"/>
         </g>
         <!-- 비둘기 -->
         <g class="anim-fly" style="transform-box: fill-box;">
-          <ellipse cx="120" cy="70" rx="20" ry="12" fill="#ffffff" stroke="#d8d2c4" stroke-width="2.5"/>
-          <circle cx="138" cy="62" r="8" fill="#ffffff" stroke="#d8d2c4" stroke-width="2.5"/>
-          <polygon points="146,61 156,64 146,67" fill="#f8a13f"/>
-          <circle cx="140" cy="60" r="1.7" fill="#43392f"/>
-          <path d="M116 64 Q 104 46 90 50 Q 102 62 112 68 Z" fill="#f3efe5" stroke="#d8d2c4" stroke-width="2.5"/>
-          <path d="M100 72 Q 86 76 82 84 Q 96 84 106 78 Z" fill="#f3efe5" stroke="#d8d2c4" stroke-width="2.5"/>
+          <!-- 꼬리깃 -->
+          <path d="M104 70 L 82 60 L 89 71 L 82 82 Z" fill="#e7ecf6"/>
+          <path d="M104 73 L 85 76 L 93 81 L 90 90 Z" fill="#f4f6fb"/>
+          <!-- 몸통 -->
+          <ellipse cx="122" cy="70" rx="21" ry="13" fill="url(#hhDove)" stroke="#d3d8e4" stroke-width="1.5"/>
+          <!-- 머리 -->
+          <circle cx="140" cy="61" r="8.5" fill="url(#hhDove)" stroke="#d3d8e4" stroke-width="1.5"/>
+          <!-- 부리 -->
+          <polygon points="148,59 160,62 148,66" fill="#f5a93c"/>
+          <!-- 눈 -->
+          <circle cx="142" cy="60" r="1.7" fill="#43392f"/>
+          <!-- 날개 -->
+          <path d="M112 64 Q 126 43 151 46 Q 132 60 120 71 Z" fill="#f4f6fb" stroke="#d3d8e4" stroke-width="1.5"/>
+          <path d="M118 63 Q 130 51 147 51" fill="none" stroke="#d3d8e4" stroke-width="1.4"/>
+          <path d="M121 69 Q 133 59 149 57" fill="none" stroke="#d3d8e4" stroke-width="1.2"/>
+          <!-- 올리브 가지 -->
+          <path d="M160 62 q12 -3 21 -11" fill="none" stroke="#7aa86a" stroke-width="2"/>
+          <ellipse cx="175" cy="54" rx="5" ry="2.6" fill="#8fc77a" transform="rotate(-32 175 54)"/>
+          <ellipse cx="182" cy="49" rx="5" ry="2.6" fill="#8fc77a" transform="rotate(-32 182 49)"/>
+          <ellipse cx="170" cy="58" rx="4" ry="2.2" fill="#7bb968" transform="rotate(18 170 58)"/>
         </g>
-        <!-- 별 -->
-        <g fill="#ffd166" class="anim-blink"><circle cx="60" cy="40" r="4"/><circle cx="200" cy="26" r="3"/><circle cx="460" cy="30" r="4"/></g>
+        <!-- 반짝임 -->
+        <g class="anim-blink">
+          <path d="M70 32 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 Z" fill="#ffd166"/>
+          <path d="M474 22 l2.5 7 7 2.5 -7 2.5 -2.5 7 -2.5 -7 -7 -2.5 7 -2.5 Z" fill="#ffd166"/>
+          <circle cx="210" cy="22" r="3.5" fill="#ffce5c"/>
+          <circle cx="44" cy="98" r="2.6" fill="#9b6fd0"/>
+          <circle cx="602" cy="122" r="2.6" fill="#7cc576"/>
+        </g>
+        <g class="anim-blink" style="animation-delay:1.1s">
+          <path d="M250 38 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2 Z" fill="#e85a6a"/>
+          <circle cx="404" cy="40" r="3" fill="#5b8def"/>
+        </g>
       </svg>
     </div>
   </header>
